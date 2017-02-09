@@ -8,6 +8,7 @@ public class Clock : MonoBehaviour
 	public GameObject minuteHand;
 	public GameObject secondHand;
 
+	// Comment goes here
 	void Update()
 	{
 		// Fetch the current time from system.
