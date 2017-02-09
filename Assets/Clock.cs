@@ -27,6 +27,17 @@ public class Clock : MonoBehaviour
 		Quaternion secondsRotationQuat = Quaternion.Euler(secondsRotation);
 		secondHand.transform.rotation = secondsRotationQuat;
 
+		// temporary variable for minutes
+		int minutes = time.Minute;
+		// Construct an euler representation of minutes rotation
+		Vector3 minutesEuler = new Vector3(0f, 0f, (1f - (minutes / 60f)) * 360f );
+		// Convert minutes euler rotation to quaternion and assign to minute hand
+		minuteHand.transform.rotation = Quaternion.Euler(minutesEuler);
 
+		// Vector3.forward = new Vector3(0, 0, 1)
+
+		// Set hour hand
+		hourHand.transform.rotation = Quaternion.Euler(
+			Vector3.forward * (1f - (time.Hour / 12f) * 360f) );
 	}
 }
